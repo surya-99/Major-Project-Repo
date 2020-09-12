@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/style.css">
+{% endblock %}
+
+{% block body %}
+<h1>
+  MUSIFY : Know Your Music !!
+</h1> 
+  
+</div>
+
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="/search" class="search_icon"><i class="fa fa-search"></i></a>
+        </div>
+      </div>
+      <h2>
+        OR
+      </h2>
+    
+    <div class="">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form action="/handleupload" enctype="multipart/form-data" method="POST">
+          <input type="file" class="form-input"name="file"/>
+          <button class="btn btn-primary">Submit</button>{{filename}}
+        </form>
+  
+        <div class="card mt-5" style="background-color: rgba(73, 73, 73, 0.308);">
+          <div class="card-body">
+            <figure>
+              <figcaption>Listen to the uploaded song:</figcaption>
+              <audio
+                  controls
+                  src="{{session.uploadpath}}">
+                      
+                      Your browser does not support the
+                      <code>audio</code> element.
+              </audio>
+          </figure>   
+          </div>
+        </div>
+      </div>
+      </div>
+      {% if session.uploadpath %}
+      
+      {% endif %}
+      
+    
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+  $(function () {
+    $('.searchbar').on('click',function(e){
+      $('.search_input').toggleClass('search_input-expand');
+    })
+    
+  });
+</script>
+{% endblock %}
